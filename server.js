@@ -3,7 +3,7 @@ const hbs = require('hbs');
 const fs = require('fs');
 
 //set port dynmically
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 var app = express();
 //setup partials-------------
 hbs.registerPartials(__dirname+'/views/partials');
@@ -64,6 +64,12 @@ app.get('/about', (req, res)=>{
     res.render('about.hbs',{
       pageTitle: 'අප ගැන'
     });
+});
+
+app.get('/projects', (req, res)=>{
+  res.render('project.hbs',{
+    pageTitle:'Project Page'
+  });
 });
 
 app.listen(port, ()=>{
